@@ -7,7 +7,7 @@
 sleep 5 
 
 # Fetch title
-info=$(curl -q https://www.byte.fm/api/v1/player/live/)
+info=$(curl -q -s https://www.byte.fm/api/v1/player/live/)
 echo Fetched info: $info
 echo " "
 title=$(echo $info | jq .broadcast_title | tr -d '"')
