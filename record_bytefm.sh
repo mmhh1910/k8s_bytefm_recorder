@@ -3,7 +3,7 @@
 # Records one hour of the byte.fm radio stream.
 # Supposed to be started at the full hour through a cron job
 
-# Wait 5 seconds to make sure the title is updated for the new hout
+# Wait 5 seconds to make sure the title is updated for the new hour
 sleep 5 
 
 # Fetch title
