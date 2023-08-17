@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: recordbfm
+  labels:
+    app: recordbfm
+spec:
+  timeZone: "Europe/Berlin"
+  schedule: "0 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: recordbfm
+        spec:
+          containers:
+            - image: eu-frankfurt-1.ocir.io/frs4lzee0jfi/bytefm_recorder:latest
+              name: recordbfm
+          imagePullSecrets:
+            - name: registry-secret
+          restartPolicy: OnFailure
