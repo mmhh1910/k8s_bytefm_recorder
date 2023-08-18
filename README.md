@@ -17,3 +17,7 @@ Running this on an arm64 k8s cluster on Oracle Cloud Infrastructure my build com
 
     docker build --push --platform linux/arm64 -t eu-frankfurt-1.ocir.io/frs4lzee0jfi/bytefm_recorder:latest .
 
+k8s apply:
+
+    k apply -f k8s/record_bfm_secrets.yaml
+    k apply -f k8s/record_bfm_cronjobs.yaml

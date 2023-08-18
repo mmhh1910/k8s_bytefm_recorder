@@ -6,7 +6,7 @@ metadata:
     app: recordbfm
 spec:
   timeZone: "Europe/Berlin"
-  schedule: "0 * * * *"
+  schedule: "59 * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:

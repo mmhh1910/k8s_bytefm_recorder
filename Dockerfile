@@ -15,4 +15,4 @@ COPY assets/root/ /
 COPY ./record_bytefm.sh .
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["record_bytefm.sh", "00:59:55"]
+CMD ["record_bytefm.sh", "01:01:00"]
