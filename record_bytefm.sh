@@ -47,5 +47,5 @@ echo "token = $RCLONE_ONEDRIVE_TOKEN" >> /root/.config/rclone/rclone.conf
 
 /usr/bin/rclone copyto "$filename" "onedrive:/bytefm/$filename"
 echo " "
-echo "Done uploading."
+echo "Done uploading. :)"
 sleep 10 
