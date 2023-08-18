@@ -2,6 +2,10 @@
 
 # Records one hour of the byte.fm radio stream.
 # Supposed to be started at the full hour through a cron job
+#
+# Duration is passed as the only parameter in the format: 00:59:55
+
+
 
 # Wait 5 seconds to make sure the title is updated for the new hour
 sleep 5 
@@ -16,7 +20,7 @@ timestamp=$(date +%Y%m%d_%H%M)
 filename="bytefm $timestamp $title - $subtitle.mp3"
 echo filename: $filename
 echo " "
-duration=00:59:55
+duration=$1
 
 
 # Record stream with ffmpeg
@@ -27,6 +31,15 @@ echo " "
 
 ls -la "$filename"
 echo " "
-echo "Done."
-# Upload file
-# TODO
+echo "Done recording."
+
+# Upload file to ondrive
+
+# put secrets into /root/.config/rclone/rclone.conf
+echo "drive_id = $RCLONE_ONEDRIVE_DRIVEID" >> /root/.config/rclone/rclone.conf
+echo "token = $RCLONE_ONEDRIVE_TOKEN" >> /root/.config/rclone/rclone.conf
+
+/usr/bin/rclone copyto "$filename" "onedrive:/bytefm/$filename"
+echo " "
+echo "Done uploading."
+sleep 10 
