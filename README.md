@@ -1,4 +1,4 @@
-# k8s_bytefm_recorder
+# k8s_record-bfm
 
 Recorder for the byte.fm radio stream meant to be run in k8s.
 
@@ -15,7 +15,7 @@ What is missing in this repo?
 
 Running this on an arm64 k8s cluster on Oracle Cloud Infrastructure my build command is:
 
-    docker build --push --platform linux/arm64 -t eu-frankfurt-1.ocir.io/frs4lzee0jfi/bytefm_recorder:latest .
+    docker build --push --platform linux/arm64 -t eu-frankfurt-1.ocir.io/frs4lzee0jfi/record-bfm:latest .
 
 k8s apply:
 

@@ -1,35 +1,35 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: recordbfm
+  name: record-bfm
   labels:
-    app: recordbfm
+    app: record-bfm
 spec:
   timeZone: "Europe/Berlin"
   schedule: "59 * * * *"
-  concurrencyPolicy: Forbid
+  concurrencyPolicy: Allow
   jobTemplate:
     spec:
       template:
         metadata:
           labels:
-            app: recordbfm
+            app: record-bfm
         spec:
           containers:
-            - image: eu-frankfurt-1.ocir.io/frs4lzee0jfi/bytefm_recorder:latest
-              name: recordbfm
+            - image: eu-frankfurt-1.ocir.io/frs4lzee0jfi/record-bfm:latest
+              name: record-bfm
               securityContext:
                 privileged: true
               env:
                 - name: RCLONE_ONEDRIVE_TOKEN
                   valueFrom:
                     secretKeyRef:
-                      name: recordbfm
+                      name: record-bfm
                       key: RCLONE_ONEDRIVE_TOKEN
                 - name: RCLONE_ONEDRIVE_DRIVEID
                   valueFrom:
                     secretKeyRef:
-                      name: recordbfm
+                      name: record-bfm
                       key: RCLONE_ONEDRIVE_DRIVEID
 
           imagePullSecrets:

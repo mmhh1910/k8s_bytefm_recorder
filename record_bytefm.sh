@@ -5,10 +5,16 @@
 #
 # Duration is passed as the only parameter in the format: 00:59:55
 
+/usr/sbin/ntpdate de.pool.ntp.org
 
-
-# Wait 5 seconds to make sure the title is updated for the new hour
-sleep 5 
+# Wait until 0 minutes after the hour
+mi=$(date +%M)
+while [  $mi -gt 50 ]; do
+   echo "Minute is $mi. Waiting..."
+   sleep 1
+   mi=$(date +%M)
+   done
+sleep 2 #make sure title is updated already
 
 # Fetch title
 info=$(curl -q -s https://www.byte.fm/api/v1/player/live/)
