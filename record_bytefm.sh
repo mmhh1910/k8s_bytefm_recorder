@@ -29,7 +29,7 @@ echo filename: $filename
 echo " "
 duration=$1
 
-sed 's/[^0-9a-zA-Z.-]/_/g')"
+
 
 # Record stream with ffmpeg
 echo Starting: ffmpeg -i https://bytefm.cast.addradio.de/bytefm/main/mid/stream.mp3?ar-distributor=ffa0 -nostats -t $duration -c copy "$filename"
